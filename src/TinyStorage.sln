@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TinyStorage.Domain", "TinyStorage.Domain\TinyStorage.Domain.csproj", "{87C17DC2-7B5A-4061-B8B6-65836A258ED4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TinyStorage.WebAPI.V1", "TinyStorage.WebAPI.V1\TinyStorage.WebAPI.V1.csproj", "{88DA5BFD-02CE-422A-9660-E286807CBDD2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TinyStorage.Application", "TinyStorage.Application\TinyStorage.Application.csproj", "{00F762A8-EE2A-405D-A4DF-89227D7039CE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TinyStorage.Infrastructure", "TinyStorage.Infrastructure\TinyStorage.Infrastructure.csproj", "{E5CC1134-128B-4851-BA19-AC52CE0361BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TinyStorage.Auth", "TinyStorage.Auth\TinyStorage.Auth.csproj", "{DCE69B81-E0E8-4726-A889-62F468B15F7F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TinyStorage.Application.Shared", "TinyStorage.Application.Shared\TinyStorage.Application.Shared.csproj", "{0EE36C74-B8DE-4B12-A624-2B93581A94BB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Global", "Global", "{6F88B833-BEBE-41B8-A68C-953E41EF977A}"
+	ProjectSection(SolutionItems) = preProject
+		Directory.Build.props = Directory.Build.props
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{87C17DC2-7B5A-4061-B8B6-65836A258ED4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87C17DC2-7B5A-4061-B8B6-65836A258ED4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87C17DC2-7B5A-4061-B8B6-65836A258ED4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87C17DC2-7B5A-4061-B8B6-65836A258ED4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88DA5BFD-02CE-422A-9660-E286807CBDD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88DA5BFD-02CE-422A-9660-E286807CBDD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88DA5BFD-02CE-422A-9660-E286807CBDD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88DA5BFD-02CE-422A-9660-E286807CBDD2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00F762A8-EE2A-405D-A4DF-89227D7039CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00F762A8-EE2A-405D-A4DF-89227D7039CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00F762A8-EE2A-405D-A4DF-89227D7039CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00F762A8-EE2A-405D-A4DF-89227D7039CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5CC1134-128B-4851-BA19-AC52CE0361BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5CC1134-128B-4851-BA19-AC52CE0361BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5CC1134-128B-4851-BA19-AC52CE0361BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5CC1134-128B-4851-BA19-AC52CE0361BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DCE69B81-E0E8-4726-A889-62F468B15F7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCE69B81-E0E8-4726-A889-62F468B15F7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCE69B81-E0E8-4726-A889-62F468B15F7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCE69B81-E0E8-4726-A889-62F468B15F7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0EE36C74-B8DE-4B12-A624-2B93581A94BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0EE36C74-B8DE-4B12-A624-2B93581A94BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0EE36C74-B8DE-4B12-A624-2B93581A94BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0EE36C74-B8DE-4B12-A624-2B93581A94BB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

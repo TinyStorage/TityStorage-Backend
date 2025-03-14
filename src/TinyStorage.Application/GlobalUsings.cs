@@ -1,0 +1,33 @@
+// Global using directives
+
+global using System.Net.Mime;
+global using System.Text;
+global using System.Text.Json;
+global using System.Text.Json.Serialization;
+global using FluentValidation;
+global using Itmo.TinyStorage.Application.ExceptionHandling;
+global using Itmo.TinyStorage.Application.Extensions;
+global using Itmo.TinyStorage.Application.HealthCheck;
+global using Itmo.TinyStorage.Application.HealthCheck.Constants;
+global using Itmo.TinyStorage.Application.HealthCheck.Probes;
+global using Itmo.TinyStorage.Application.Middlewares;
+global using Itmo.TinyStorage.Application.Shared;
+global using Itmo.TinyStorage.Application.Swagger;
+global using Itmo.TinyStorage.Application.Swagger.ConfigureOptions;
+global using Itmo.TinyStorage.Application.Swagger.OpenApiSecurity.Bearer;
+global using Itmo.TinyStorage.Application.Swagger.OpenApiSecurity.OAuth2;
+global using Itmo.TinyStorage.Auth;
+global using Itmo.TinyStorage.Auth.ConfigureOptions;
+global using Itmo.TinyStorage.Auth.Settings;
+global using Itmo.TinyStorage.Domain.Core.Exceptions;
+global using Itmo.TinyStorage.WebAPI.V1;
+global using Microsoft.AspNetCore.Authentication.JwtBearer;
+global using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+global using Microsoft.AspNetCore.Mvc;
+global using Microsoft.AspNetCore.Mvc.ApiExplorer;
+global using Microsoft.AspNetCore.Mvc.Formatters;
+global using Microsoft.EntityFrameworkCore;
+global using Microsoft.Extensions.Diagnostics.HealthChecks;
+global using Microsoft.Extensions.Options;
+global using Microsoft.OpenApi.Models;
+global using Swashbuckle.AspNetCore.SwaggerGen;

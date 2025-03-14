@@ -1,0 +1,12 @@
+// Global using directives
+
+global using System.Data;
+global using Itmo.TinyStorage.Infrastructure.ConfigureOptions;
+global using Itmo.TinyStorage.Infrastructure.Items;
+global using Microsoft.AspNetCore.Builder;
+global using Microsoft.EntityFrameworkCore;
+global using Microsoft.EntityFrameworkCore.Design;
+global using Microsoft.EntityFrameworkCore.Metadata.Builders;
+global using Microsoft.EntityFrameworkCore.Storage;
+global using Microsoft.Extensions.DependencyInjection;
+global using Npgsql;
