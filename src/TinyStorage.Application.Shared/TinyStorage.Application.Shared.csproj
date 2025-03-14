@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <RootNamespace>Itmo.TinyStorage.Application.Shared</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="MediatR" Version="12.4.1"/>
+        <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.0"/>
+        <PackageReference Include="MediatR.Behaviors.Authorization" Version="12.2.0"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\TinyStorage.Auth\TinyStorage.Auth.csproj" />
+        <ProjectReference Include="..\TinyStorage.Domain\TinyStorage.Domain.csproj"/>
+        <ProjectReference Include="..\TinyStorage.Infrastructure\TinyStorage.Infrastructure.csproj"/>
+    </ItemGroup>
+
+</Project>

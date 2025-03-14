@@ -1,0 +1,13 @@
+﻿services:
+  webapp:
+    image: webapp
+    build:
+      context: .
+      dockerfile: WebApp/Dockerfile
+
+  tinystorage.applicatio:
+    image: tinystorage.applicatio
+    build:
+      context: .
+      dockerfile: TinyStorage.Applicatio/Dockerfile
+

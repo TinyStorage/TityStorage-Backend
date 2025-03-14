@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <RootNamespace>Itmo.TinyStorage.Application</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\TinyStorage.WebAPI.V1\TinyStorage.WebAPI.V1.csproj"/>
+        <ProjectReference Include="..\TinyStorage.Auth\TinyStorage.Auth.csproj"/>
+    </ItemGroup>
+
+</Project>

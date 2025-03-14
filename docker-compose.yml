@@ -1,0 +1,47 @@
+name: tiny-storage-dev-environment
+services:
+  tiny-storage-backend:
+    container_name: tiny-storage-backend
+    build:
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+    ports:
+      - '8080:8080'
+      - '8082:8082'
+    networks:
+      - tiny-storage-dev-environment-network
+  
+  keycloak:
+    container_name: tiny-storage-keycloak
+    image: quay.io/keycloak/keycloak:latest
+    env_file:
+      - .env
+    ports:
+      - '5050:8080'
+    command: [ "start-dev" ]
+    depends_on:
+      - tiny-storage-postgres
+    networks:
+      - tiny-storage-dev-environment-network
+  
+  tiny-storage-postgres:
+    container_name: tiny-storage-postgres
+    image: postgres:latest
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - '5432:5432'
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    networks:
+      - tiny-storage-dev-environment-network
+    
+networks:
+  tiny-storage-dev-environment-network:
+    name: tiny-storage-dev-environment-network
+    driver: bridge
+
+volumes:
+  postgres:
