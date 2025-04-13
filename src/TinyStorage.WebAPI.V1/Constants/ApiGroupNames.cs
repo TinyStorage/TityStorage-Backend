@@ -1,4 +1,4 @@
-namespace Itmo.TinyStorage.WebAPI.V1.Items.Constants;
+namespace Itmo.TinyStorage.WebAPI.V1.Constants;
 
 public static class ApiGroupNames
 {

@@ -39,13 +39,26 @@ public sealed class CreateItemValidator : AbstractValidator<CreateItemCommand>
 
 [UsedImplicitly]
 public sealed class CreateItemCommandHandler(
-    ILogger<CreateItemCommandHandler> logger) : ICommandHandler<CreateItemCommand, Guid>
+    ILogger<CreateItemCommandHandler> logger,
+    TinyStorageContext context,
+    TimeProvider timeProvider) : ICommandHandler<CreateItemCommand, Guid>
 {
+    private readonly DbSet<ItemModel> _item = context.Items;
+
     public async Task<Guid> Handle(CreateItemCommand command, CancellationToken cancellationToken)
     {
         var item = new Item(command.Id, command.Name);
 
         logger.LogInformation("Created item {Id} with name {Name}", item.Id, item.Name);
+
+        await _item.AddAsync(new ItemModel
+        {
+            Id = item.Id,
+            Name = item.Name,
+            TakenBy = null,
+            CreatedAt = timeProvider.GetUtcNow().UtcDateTime,
+            UpdatedAt = timeProvider.GetUtcNow().UtcDateTime
+        }, cancellationToken);
 
         return item.Id;
     }

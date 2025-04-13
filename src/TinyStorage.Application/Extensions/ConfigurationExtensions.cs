@@ -8,7 +8,8 @@ public static class ConfigurationExtensions
 
         builder.Services
             .Configure<OpenApiOAuthFlow>(configurationManager.GetSection(nameof(OpenApiOAuthFlow)))
-            .Configure<JwtAuthSettings>(configurationManager.GetSection(nameof(JwtAuthSettings)));
+            .Configure<JwtAuthSettings>(configurationManager.GetSection(nameof(JwtAuthSettings)))
+            .Configure<InfrastructureSettings>(configurationManager.GetSection(nameof(InfrastructureSettings)));
 
         return builder;
     }

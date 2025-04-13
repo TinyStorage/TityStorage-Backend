@@ -1,5 +1,3 @@
-// Global using directives
-
 global using System.Security.Claims;
 global using Itmo.TinyStorage.Auth.ConfigureOptions;
 global using Itmo.TinyStorage.Auth.Settings;

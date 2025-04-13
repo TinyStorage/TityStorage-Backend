@@ -7,13 +7,22 @@ public static class DependencyInjection
 
     public static IServiceCollection AddTinyStorageWebApiV1Controllers(this IServiceCollection service)
     {
-        service.AddApiVersioning(options => typeof(DependencyInjection).Assembly
-            .GetTypes()
-            .Where(type => type.IsSubclassOf(typeof(ControllerBase)))
-            .ToList()
-            .ForEach(controller => options.Conventions
-                .Controller(controller)
-                .HasApiVersion(MajorVersion, MinorVersion)));
+        service.AddApiVersioning(options =>
+            {
+                options.ReportApiVersions = true;
+                typeof(DependencyInjection).Assembly
+                    .GetTypes()
+                    .Where(type => type.IsSubclassOf(typeof(ControllerBase)))
+                    .ToList()
+                    .ForEach(controller => options.Conventions
+                        .Controller(controller)
+                        .HasApiVersion(MajorVersion, MinorVersion));
+            })
+            .AddVersionedApiExplorer(options =>
+            {
+                options.GroupNameFormat = "'v'VVV";
+                options.SubstituteApiVersionInUrl = true;
+            });
 
         return service;
     }
