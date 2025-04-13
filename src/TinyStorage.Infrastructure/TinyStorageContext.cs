@@ -64,8 +64,7 @@ public sealed class TinyStorageContext(DbContextOptions<TinyStorageContext> opti
             .ApplyConfigurationsFromAssembly(typeof(TinyStorageContext).Assembly);
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder
-            .UseSnakeCaseNamingConvention();
+        => optionsBuilder.UseSnakeCaseNamingConvention();
 
     private void RollbackTransaction()
     {

@@ -8,6 +8,7 @@ global using Itmo.TinyStorage.Auth;
 global using Itmo.TinyStorage.Domain.Aggregates.Items;
 global using Itmo.TinyStorage.Domain.Core.Exceptions;
 global using Itmo.TinyStorage.Infrastructure;
+global using Itmo.TinyStorage.Infrastructure.Items;
 global using JetBrains.Annotations;
 global using MediatR;
 global using Microsoft.AspNetCore.Authorization;

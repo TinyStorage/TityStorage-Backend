@@ -20,3 +20,4 @@ bld/
 *.DotSettings
 *.DotSettings.user
 *.csproj.user
+/volumes

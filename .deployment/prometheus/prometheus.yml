@@ -1,0 +1,24 @@
+global:
+  scrape_interval: 15s
+
+  external_labels:
+    monitor: 'tiny-storage-monitor'
+
+scrape_configs:
+  - job_name: 'prometheus-job'
+    scrape_interval: 5s
+    static_configs:
+      - targets: [ 'prometheus:9090' ]
+    metrics_path: /prometheus/metrics
+
+#  - job_name: 'bacs-api-job'
+#    static_configs:
+#      - targets: [ 'bacs.api:8080' ]
+#
+#  - job_name: "cadvisor-job"
+#    static_configs:
+#      - targets: [ "cadvisor:8080" ]
+
+  - job_name: "postgres-job"
+    static_configs:
+      - targets: [ "postgres-exporter:9187" ]

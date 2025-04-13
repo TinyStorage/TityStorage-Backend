@@ -6,10 +6,9 @@ builder.ConfigureSettings();
 
 builder.Services.AddTinyStorageHealthChecks();
 
-builder.Services
-    .AddTinyStorageApplicationSharedLayer();
-
 builder.Services.AddTinyStorageAuth();
+builder.Services.AddTinyStorageApplicationSharedLayer();
+builder.Services.AddTinyStorageInfrastructure();
 
 builder.Services.AddAuthorization();
 builder.Services
@@ -17,14 +16,7 @@ builder.Services
     .AddJsonOptions(_ => { })
     .ConfigureTinyStorage();
 
-builder.Services
-    .AddApiVersioning(options => options.ReportApiVersions = true)
-    .AddVersionedApiExplorer(options =>
-    {
-        options.GroupNameFormat = "'v'VVV";
-        options.SubstituteApiVersionInUrl = true;
-    })
-    .AddTinyStorageWebApiV1Controllers();
+builder.Services.AddTinyStorageWebApiV1Controllers();
 
 builder.Services.AddSwagger(applicationBasePath);
 builder.Services.AddTinyStorageCors();
@@ -54,5 +46,7 @@ app.MapOnPublicPort(publicApp => publicApp
         endpoints.MapTinyStorageHealthChecks();
         endpoints.MapControllers();
     }));
+
+await app.ApplyTinyStorageMigrationsAsync();
 
 app.Run();

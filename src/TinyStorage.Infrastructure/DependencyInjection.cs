@@ -4,8 +4,14 @@ public static class DependencyInjection
 {
     public static IServiceCollection AddTinyStorageInfrastructure(this IServiceCollection services)
     {
-        services.AddDbContext<TinyStorageContext>()
-            .ConfigureOptions<DbContextConfigureOptions>();
+        services.AddDbContext<TinyStorageContext>((provider, builder) =>
+        {
+            var infrastructureSettings = provider.GetRequiredService<IOptions<InfrastructureSettings>>().Value;
+            builder
+                .UseNpgsql(infrastructureSettings.ConnectionString)
+                .UseSnakeCaseNamingConvention()
+                .EnableSensitiveDataLogging();
+        });
 
         return services;
     }
