@@ -3,9 +3,8 @@ namespace Itmo.TinyStorage.Application.Shared.Items.Commands;
 public sealed record CreateItemCommand(Guid Id, string Name) : ICommand<Guid>;
 
 [UsedImplicitly]
-public sealed class CreateItemAuthorizer(
-    ILogger<CreateItemAuthorizer> logger,
-    IUserAccessor user) : IAuthorizer<CreateItemCommand>
+public sealed class CreateItemAuthorizer(ILogger<CreateItemAuthorizer> logger, IUserAccessor user)
+    : IAuthorizer<CreateItemCommand>
 {
     public async Task<AuthorizationResult> AuthorizeAsync(CreateItemCommand command, CancellationToken cancellation)
     {

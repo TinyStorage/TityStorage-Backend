@@ -22,4 +22,17 @@ public sealed class ItemController(IMediator mediator) : ControllerBase
         var uri = $"{Request.Path.Value}/{request.Id}";
         return Created(uri, new CreateItemResponse(request.Id, request.Name));
     }
+
+    [HttpGet]
+    [ProducesResponseType(typeof(GetItemsResponse), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+    [ProducesResponseType(StatusCodes.Status403Forbidden)]
+    public async Task<IActionResult> GetItemsAsync()
+    {
+        var items = await mediator
+            .Send(new GetItemsQuery(), HttpContext.RequestAborted)
+            .ConfigureAwait(false);
+
+        return Ok(new GetItemsResponse(items));
+    }
 }
