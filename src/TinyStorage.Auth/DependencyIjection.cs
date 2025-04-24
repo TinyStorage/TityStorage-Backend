@@ -8,11 +8,11 @@ public static class DependencyInjection
             .ConfigureOptions<ConfigureJwtAuthOptions>()
             .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme);
-        
+
         services
             .AddHttpContextAccessor()
             .AddScoped<IUserAccessor, UserAccessor>();
-        
+
         return services;
     }
 }

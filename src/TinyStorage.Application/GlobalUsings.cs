@@ -1,5 +1,3 @@
-// Global using directives
-
 global using System.Net.Mime;
 global using System.Text;
 global using System.Text.Json;
@@ -12,6 +10,7 @@ global using Itmo.TinyStorage.Application.HealthCheck.Constants;
 global using Itmo.TinyStorage.Application.HealthCheck.Probes;
 global using Itmo.TinyStorage.Application.Middlewares;
 global using Itmo.TinyStorage.Application.Shared;
+global using Itmo.TinyStorage.Application.Shared.Common.Exceptions;
 global using Itmo.TinyStorage.Application.Swagger;
 global using Itmo.TinyStorage.Application.Swagger.ConfigureOptions;
 global using Itmo.TinyStorage.Application.Swagger.OpenApiSecurity.Bearer;
