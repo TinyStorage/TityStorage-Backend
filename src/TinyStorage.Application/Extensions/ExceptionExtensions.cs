@@ -1,5 +1,3 @@
-using Itmo.TinyStorage.Application.Shared.Common.Exceptions;
-
 namespace Itmo.TinyStorage.Application.Extensions;
 
 public static class ExceptionErrorCodes
@@ -16,11 +14,8 @@ public static class ExceptionExtensions
 {
     public static IApplicationBuilder UseFilterExceptions(this IApplicationBuilder app)
     {
-        var options = new ExceptionHandlingOptions
-        {
-            Mode = ExceptionHandlingMode.Hierarchical
-        };
-        
+        var options = new ExceptionHandlingOptions { Mode = ExceptionHandlingMode.Hierarchical };
+
         options.MapException<ValidationDomainException>((ex, ctx) =>
         {
             var (convertPropertyName, replacePropertyNames) = ctx.GetPropertyNameConverters();
@@ -82,7 +77,7 @@ public static class ExceptionExtensions
             ErrorCode = ExceptionErrorCodes.UnsupportedBodyFormat,
             ErrorMessage = "Unsupported body format"
         });
-        
+
         options.MapException<OperationCanceledException>((ex, _) => new ExceptionHandlingResult
         {
             LogLevel = LogLevel.Warning,
@@ -137,7 +132,7 @@ public static class ExceptionExtensions
             });
 }
 
-file static class HttpContextExtensions
+static file class HttpContextExtensions
 {
     public static (Func<string, string> convertPropertyName, Func<string, string, string> replacePropertyNames)
         GetPropertyNameConverters(this HttpContext context)
@@ -171,15 +166,15 @@ file static class HttpContextExtensions
     }
 }
 
-file sealed class UnsupportedMediaTypeException : Exception
+sealed file class UnsupportedMediaTypeException : Exception
 {
 }
 
-file sealed class UnsupportedBodyFormatException : Exception
+sealed file class UnsupportedBodyFormatException : Exception
 {
 }
 
-file sealed class CustomJsonInputFormatter : TextInputFormatter
+sealed file class CustomJsonInputFormatter : TextInputFormatter
 {
     private readonly SystemTextJsonInputFormatter _jsonFormatter;
 
@@ -196,8 +191,7 @@ file sealed class CustomJsonInputFormatter : TextInputFormatter
     public override Task<InputFormatterResult> ReadRequestBodyAsync(InputFormatterContext context) =>
         ReadRequestBodyAsync(context, Encoding.UTF8);
 
-    public override async Task<InputFormatterResult> ReadRequestBodyAsync(
-        InputFormatterContext context,
+    public override async Task<InputFormatterResult> ReadRequestBodyAsync(InputFormatterContext context,
         Encoding encoding)
     {
         if (!_jsonFormatter.CanRead(context))
@@ -230,4 +224,3 @@ public enum ExceptionHandlingMode
     Strict,
     Hierarchical
 }
-

@@ -1,6 +1,3 @@
-using Itmo.TinyStorage.Application.Shared.Common.Behaviors;
-using MediatR.Behaviors.Authorization.Extensions.DependencyInjection;
-
 namespace Itmo.TinyStorage.Application.Shared;
 
 public static class DependencyInjection
@@ -33,8 +30,7 @@ public static class DependencyInjection
         return services;
     }
 
-    private static IServiceCollection AddAuthorizersFromAssemblyContaining(
-        this IServiceCollection services,
+    private static IServiceCollection AddAuthorizersFromAssemblyContaining(this IServiceCollection services,
         Type type,
         ServiceLifetime lifetime = ServiceLifetime.Scoped)
     {

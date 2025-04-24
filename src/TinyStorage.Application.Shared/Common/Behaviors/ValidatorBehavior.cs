@@ -1,5 +1,3 @@
-using Itmo.TinyStorage.Application.Shared.Common.Exceptions;
-
 namespace Itmo.TinyStorage.Application.Shared.Common.Behaviors;
 
 public sealed class ValidatorBehavior<TRequest, TResponse>(
@@ -30,7 +28,7 @@ public sealed class ValidatorBehavior<TRequest, TResponse>(
             {
                 return default!;
             }
-            
+
             throw new ValidationDomainException(
                 $"Command Validation Errors for type {typeof(TRequest).Name}",
                 new ValidationException("Validation exception", failures));

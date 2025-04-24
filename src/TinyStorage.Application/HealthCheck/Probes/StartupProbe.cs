@@ -4,8 +4,7 @@ public sealed class StartupProbe(IHostApplicationLifetime lifetime) : IHealthChe
 {
     private readonly bool _started = lifetime.ApplicationStarted.IsCancellationRequested;
 
-    public async Task<HealthCheckResult> CheckHealthAsync(
-        HealthCheckContext context,
+    public async Task<HealthCheckResult> CheckHealthAsync(HealthCheckContext context,
         CancellationToken cancellationToken)
     {
         var healthCheckResult = _started ? HealthCheckResult.Healthy() : HealthCheckResult.Unhealthy();
