@@ -7,4 +7,6 @@ public sealed class ItemModel
     public int? TakenBy { get; set; }
     public DateTime CreatedAt { get; set; }
     public DateTime UpdatedAt { get; set; }
+
+    public IEnumerable<ItemAuditModel>? ItemAuditModels { get; set; }
 }

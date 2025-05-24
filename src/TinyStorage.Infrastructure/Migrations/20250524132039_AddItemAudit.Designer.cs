@@ -3,6 +3,7 @@ using System;
 using Itmo.TinyStorage.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Itmo.TinyStorage.Infrastructure.Migrations
 {
     [DbContext(typeof(TinyStorageContext))]
-    partial class TinyStorageContextModelSnapshot : ModelSnapshot
+    [Migration("20250524132039_AddItemAudit")]
+    partial class AddItemAudit
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

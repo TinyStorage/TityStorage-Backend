@@ -7,6 +7,7 @@ public sealed class TinyStorageContext(DbContextOptions<TinyStorageContext> opti
     private IDbContextTransaction? _currentTransaction;
 
     public DbSet<ItemModel> Items { get; set; } = null!;
+    public DbSet<ItemAuditModel> ItemAudits { get; set; } = null!;
 
     public bool HasActiveTransaction => _currentTransaction != null;
 
