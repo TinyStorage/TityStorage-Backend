@@ -2,13 +2,13 @@ namespace Itmo.TinyStorage.Application.Shared.Items.Queries;
 
 public sealed record ItemView(Guid Id, string Name, int? TakenBy);
 
-public sealed record GetItemsQuery() : IQuery<IReadOnlyCollection<ItemView>>;
+public sealed record GetItemsQuery : IQuery<IReadOnlyCollection<ItemView>>;
 
 [UsedImplicitly]
 public sealed class GetItemsAuthorizer(ILogger<GetItemsAuthorizer> logger, IUserAccessor user)
     : IAuthorizer<GetItemsQuery>
 {
-    public async Task<AuthorizationResult> AuthorizeAsync(GetItemsQuery @query, CancellationToken cancellation)
+    public async Task<AuthorizationResult> AuthorizeAsync(GetItemsQuery query, CancellationToken cancellation)
     {
         if (!user.IsLaboratoryAssistant)
         {

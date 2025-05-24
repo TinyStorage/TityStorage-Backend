@@ -5,8 +5,7 @@ public sealed class ReadinessProbe(IHostApplicationLifetime lifetime) : IHealthC
     private readonly bool _ready = lifetime.ApplicationStarted.IsCancellationRequested &&
                                    !lifetime.ApplicationStopping.IsCancellationRequested;
 
-    public Task<HealthCheckResult> CheckHealthAsync(
-        HealthCheckContext context,
+    public Task<HealthCheckResult> CheckHealthAsync(HealthCheckContext context,
         CancellationToken cancellationToken)
     {
         var healthCheckResult = _ready ? HealthCheckResult.Healthy() : HealthCheckResult.Unhealthy();

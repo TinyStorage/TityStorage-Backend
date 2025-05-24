@@ -10,19 +10,13 @@ public static class HealthCheckExtensions
 
     public static void MapTinyStorageHealthChecks(this IEndpointRouteBuilder endpoints)
     {
-        endpoints.MapHealthChecks(Patterns.Startup, new HealthCheckOptions
-        {
-            Predicate = registration => registration.Tags.IsSupersetOf(Tags.Startup)
-        });
+        endpoints.MapHealthChecks(Patterns.Startup,
+            new HealthCheckOptions { Predicate = registration => registration.Tags.IsSupersetOf(Tags.Startup) });
 
-        endpoints.MapHealthChecks(Patterns.Liveness, new HealthCheckOptions
-        {
-            Predicate = registration => registration.Tags.IsSupersetOf(Tags.Liveness)
-        });
+        endpoints.MapHealthChecks(Patterns.Liveness,
+            new HealthCheckOptions { Predicate = registration => registration.Tags.IsSupersetOf(Tags.Liveness) });
 
-        endpoints.MapHealthChecks(Patterns.Readiness, new HealthCheckOptions
-        {
-            Predicate = registration => registration.Tags.IsSupersetOf(Tags.Readiness)
-        });
+        endpoints.MapHealthChecks(Patterns.Readiness,
+            new HealthCheckOptions { Predicate = registration => registration.Tags.IsSupersetOf(Tags.Readiness) });
     }
 }

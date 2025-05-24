@@ -32,7 +32,9 @@ public sealed class TransactionBehavior<TRequest, TResponse>(
                 await using var transaction = await dbContext.BeginTransactionAsync(cancellationToken);
 
                 using (logger.BeginScope(new List<KeyValuePair<string, object>>
-                           { new("TransactionContext", transaction!.TransactionId) }))
+                       {
+                           new("TransactionContext", transaction!.TransactionId)
+                       }))
                 {
                     logger.LogInformation("Begin transaction {TransactionId} for {CommandName} ({@Command})",
                         transaction.TransactionId, typeName, request);

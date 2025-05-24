@@ -24,16 +24,16 @@ public sealed class GetItemsAuthorizer(ILogger<GetItemsAuthorizer> logger, IUser
 public sealed class GetItemAuditsHandler(ILogger<GetItemAuditsHandler> logger, TinyStorageContext context) : IQueryHandler<GetItemAuditsQuery, IReadOnlyCollection<ItemAuditView>>
 {
     private readonly DbSet<ItemAuditModel> _item = context.ItemAudits;
-    
+
     public async Task<IReadOnlyCollection<ItemAuditView>> Handle(GetItemAuditsQuery request,
         CancellationToken cancellationToken)
     {
-        var itemAudits = await _item 
+        var itemAudits = await _item
             .AsNoTracking()
             .AsQueryable()
             .Select(itemAudit => new ItemAuditView(itemAudit.Id, itemAudit.ItemModel!.Name, itemAudit.Property, itemAudit.Value))
             .ToArrayAsync(cancellationToken);
-        
+
         logger.LogInformation("Get {Count} item audits", itemAudits.Length);
 
         return itemAudits;

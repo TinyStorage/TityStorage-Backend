@@ -50,14 +50,15 @@ public sealed class CreateItemCommandHandler(
 
         logger.LogInformation("Created item {Id} with name {Name}", item.Id, item.Name);
 
-        await _item.AddAsync(new ItemModel
-        {
-            Id = item.Id,
-            Name = item.Name,
-            TakenBy = null,
-            CreatedAt = timeProvider.GetUtcNow().UtcDateTime,
-            UpdatedAt = timeProvider.GetUtcNow().UtcDateTime
-        }, cancellationToken);
+        await _item.AddAsync(
+            new ItemModel
+            {
+                Id = item.Id,
+                Name = item.Name,
+                TakenBy = null,
+                CreatedAt = timeProvider.GetUtcNow().UtcDateTime,
+                UpdatedAt = timeProvider.GetUtcNow().UtcDateTime
+            }, cancellationToken);
 
         return item.Id;
     }

@@ -35,11 +35,11 @@ public static class DependencyInjection
                     }
                 };
             });
-        
+
         services
             .AddHttpContextAccessor()
             .AddScoped<IUserAccessor, UserAccessor>();
-        
+
         return services;
     }
 }

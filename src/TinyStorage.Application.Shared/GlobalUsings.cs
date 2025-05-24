@@ -3,6 +3,8 @@ global using FluentValidation;
 global using Itmo.TinyStorage.Application.Shared.Common.Abstractions;
 global using Itmo.TinyStorage.Application.Shared.Common.Abstractions.Cqrs.Command;
 global using Itmo.TinyStorage.Application.Shared.Common.Abstractions.Cqrs.Query;
+global using Itmo.TinyStorage.Application.Shared.Common.Behaviors;
+global using Itmo.TinyStorage.Application.Shared.Common.Exceptions;
 global using Itmo.TinyStorage.Application.Shared.Common.Extensions;
 global using Itmo.TinyStorage.Auth;
 global using Itmo.TinyStorage.Domain.Aggregates.Items;

@@ -20,8 +20,7 @@ public sealed class ExceptionHandlingMiddleware(
             context.Response.StatusCode = StatusCodes.Status400BadRequest;
             await context.Response.WriteAsJsonAsync(new ErrorResponse
             {
-                ErrorCode = "CANCELED",
-                ErrorMessage = "Request was cancelled"
+                ErrorCode = "CANCELED", ErrorMessage = "Request was cancelled"
             });
         }
         catch (Exception exception)
@@ -50,8 +49,7 @@ public sealed class ExceptionHandlingMiddleware(
                 httpStatusCode = StatusCodes.Status500InternalServerError;
                 errorResponse = new ErrorResponse
                 {
-                    ErrorCode = "INTERNAL_ERROR", 
-                    ErrorMessage = "Something went wrong. Please try again later."
+                    ErrorCode = "INTERNAL_ERROR", ErrorMessage = "Something went wrong. Please try again later."
                 };
             }
 
@@ -78,7 +76,8 @@ public sealed class ExceptionHandlingMiddleware(
             {
                 exceptionType = exceptionType.BaseType;
             }
-        } while (exceptionHandlingOptions.Mode == ExceptionHandlingMode.Hierarchical && handler == null && exceptionType != null);
+        } while (exceptionHandlingOptions.Mode == ExceptionHandlingMode.Hierarchical && handler == null &&
+                 exceptionType != null);
 
         return handler;
     }

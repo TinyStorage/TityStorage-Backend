@@ -1,9 +1,9 @@
 namespace Itmo.TinyStorage.Application.Extensions;
 
-public record ErrorResponse
+public sealed record ErrorResponse
 {
-    private string? _errorId;
     private readonly DateTime _createdAt = DateTime.UtcNow;
+    private string? _errorId;
 
     public string ErrorId =>
         _errorId ??= ComputeHash(
@@ -22,11 +22,11 @@ public record ErrorResponse
 
     private static ulong ComputeHash(params object[] hashFields)
     {
-        ulong hash = 3074457345618258791ul;
+        var hash = 3074457345618258791ul;
 
         unchecked
         {
-            foreach (object obj in hashFields)
+            foreach (var obj in hashFields)
             {
                 hash += (ulong)obj.GetHashCode();
                 hash *= 3074457345618258799ul;
