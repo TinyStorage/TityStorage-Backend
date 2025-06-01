@@ -8,9 +8,9 @@ public sealed class CreateItemAuthorizer(ILogger<CreateItemAuthorizer> logger, I
 {
     public async Task<AuthorizationResult> AuthorizeAsync(CreateItemCommand command, CancellationToken cancellation)
     {
-        if (!user.IsLaboratoryAssistant)
+        if (!user.IsAdministrator)
         {
-            logger.LogInformation("User {Isu} has not role {Role}", user.Isu, "Лаборант");
+            logger.LogInformation("User {Isu} has not role {Role}", user.Isu, "Администратор");
 
             return await Task.FromResult(AuthorizationResult.Failed());
         }

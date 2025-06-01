@@ -15,6 +15,7 @@
     </ItemGroup>
 
     <ItemGroup>
+        <ProjectReference Include="..\TinyStorage.Auth\TinyStorage.Auth.csproj"/>
         <ProjectReference Include="..\TinyStorage.Domain\TinyStorage.Domain.csproj"/>
     </ItemGroup>
 

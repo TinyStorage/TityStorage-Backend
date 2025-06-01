@@ -46,13 +46,13 @@ public static class ExceptionExtensions
             ErrorMessage = ex.Message
         });
 
-        // options.MapException<InfrastructureException>((ex, _) => new ExceptionHandlingResult
-        // {
-        //     LogLevel = LogLevel.Warning,
-        //     StatusCode = StatusCodes.Status404NotFound,
-        //     ErrorCode = ExceptionErrorCodes.Infrastructure,
-        //     ErrorMessage = ex.Message
-        // });
+        options.MapException<InfrastructureException>((ex, _) => new ExceptionHandlingResult
+        {
+            LogLevel = LogLevel.Warning,
+            StatusCode = StatusCodes.Status404NotFound,
+            ErrorCode = ExceptionErrorCodes.Infrastructure,
+            ErrorMessage = ex.Message
+        });
 
         options.MapException<DbUpdateException>((ex, _) => new ExceptionHandlingResult
         {
