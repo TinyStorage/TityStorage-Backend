@@ -5,7 +5,7 @@ public sealed record ItemAuditView(Guid Id, string ItemName, string Property, st
 public sealed record GetItemAuditsQuery() : IQuery<IReadOnlyCollection<ItemAuditView>>;
 
 [UsedImplicitly]
-public sealed class GetItemsAuthorizer(ILogger<GetItemsAuthorizer> logger, IUserAccessor user)
+public sealed class GetItemAuditsAuthorizer(ILogger<GetItemAuditsAuthorizer> logger, IUserAccessor user)
     : IAuthorizer<GetItemAuditsQuery>
 {
     public async Task<AuthorizationResult> AuthorizeAsync(GetItemAuditsQuery @query, CancellationToken cancellation)
