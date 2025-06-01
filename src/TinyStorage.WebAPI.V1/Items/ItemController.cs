@@ -32,6 +32,18 @@ public sealed class ItemController(IMediator mediator) : ControllerBase
         return Ok(new GetItemsResponse(items));
     }
 
+    [HttpDelete("{id:guid}")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+    [ProducesResponseType(StatusCodes.Status403Forbidden)]
+    public async Task<IActionResult> DeleteItemAsync(Guid id)
+    {
+        await mediator.Send(new DeleteItemCommand(id), HttpContext.RequestAborted);
+
+        return NoContent();
+    }
+
     [HttpPost("{id:guid}/is-taken")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]

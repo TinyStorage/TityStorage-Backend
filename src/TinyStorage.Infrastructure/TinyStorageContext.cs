@@ -1,6 +1,6 @@
 namespace Itmo.TinyStorage.Infrastructure;
 
-public sealed class TinyStorageContext(DbContextOptions<TinyStorageContext> options) : DbContext(options)
+public class TinyStorageContext(DbContextOptions<TinyStorageContext> options, IUserAccessor user) : DbContext(options)
 {
     private const string SchemaName = "tiny_storage";
 
@@ -65,7 +65,8 @@ public sealed class TinyStorageContext(DbContextOptions<TinyStorageContext> opti
             .ApplyConfigurationsFromAssembly(typeof(TinyStorageContext).Assembly);
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseSnakeCaseNamingConvention();
+        => optionsBuilder.UseSnakeCaseNamingConvention()
+            .AddInterceptors(new UpdateAuditableInterceptor(user));
 
     private void RollbackTransaction()
     {

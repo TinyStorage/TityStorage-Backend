@@ -1,6 +1,6 @@
 ﻿namespace Itmo.TinyStorage.Infrastructure;
 
-internal sealed class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<TinyStorageContext>
+internal sealed class DesignTimeDbContextFactory(IUserAccessor user) : IDesignTimeDbContextFactory<TinyStorageContext>
 {
     public TinyStorageContext CreateDbContext(string[] args)
     {
@@ -8,6 +8,6 @@ internal sealed class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<T
             .UseNpgsql(new NpgsqlConnection())
             .Options;
 
-        return new TinyStorageContext(options);
+        return new TinyStorageContext(options, user);
     }
 }
