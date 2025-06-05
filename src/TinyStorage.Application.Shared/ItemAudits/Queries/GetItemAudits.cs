@@ -1,6 +1,6 @@
 namespace Itmo.TinyStorage.Application.Shared.ItemAudits.Queries;
 
-public sealed record ItemAuditView(Guid Id, string ItemName, string Property, string Value);
+public sealed record ItemAuditView(Guid ItemId, string Name, string Property, string Value);
 
 public sealed record GetItemAuditsQuery() : IQuery<IReadOnlyCollection<ItemAuditView>>;
 
@@ -31,7 +31,7 @@ public sealed class GetItemAuditsHandler(ILogger<GetItemAuditsHandler> logger, T
         var itemAudits = await _item
             .AsNoTracking()
             .AsQueryable()
-            .Select(itemAudit => new ItemAuditView(itemAudit.Id, itemAudit.ItemModel!.Name, itemAudit.Property, itemAudit.Value))
+            .Select(itemAudit => new ItemAuditView(itemAudit.ItemId, itemAudit.ItemModel!.Name, itemAudit.Property, itemAudit.Value))
             .ToArrayAsync(cancellationToken);
 
         logger.LogInformation("Get {Count} item audits", itemAudits.Length);

@@ -32,8 +32,8 @@ public sealed class GetItemAuditsHandlerTests
         // Assert
         result.Should().NotBeNull();
         result.Should().HaveCount(2);
-        result.Should().ContainEquivalentOf(new ItemAuditView(audit1.Id, "TestItem", "Name", "A"));
-        result.Should().ContainEquivalentOf(new ItemAuditView(audit2.Id, "TestItem", "TakenBy", "1"));
+        result.Should().ContainEquivalentOf(new ItemAuditView(item.Id, "TestItem", "Name", "A"));
+        result.Should().ContainEquivalentOf(new ItemAuditView(item.Id, "TestItem", "TakenBy", "1"));
 
         logger.Verify(
             x => x.Log(
